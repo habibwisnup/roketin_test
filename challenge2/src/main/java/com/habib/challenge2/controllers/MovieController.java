@@ -12,7 +12,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/movies")
@@ -22,7 +21,7 @@ public class MovieController {
     @Autowired
     private MovieService movieService;
 
-    @PostMapping("/upload")
+    @PostMapping("/save")
     public ResponseEntity<MovieResponse> uploadMovie(@Valid @RequestBody MovieRequest movieRequest) {
         logger.info("Uploading movie: {}", movieRequest.getTitle());
         MovieResponse response = movieService.saveMovie(movieRequest);
